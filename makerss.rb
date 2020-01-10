@@ -13,7 +13,7 @@ def main(yaml)
   yaml['channels'].each do |channel|
     maker = RSS::Maker['2.0'].new
     maker.channel.title = channel['title']
-    maker.channel.link = ENV['URL']
+    maker.channel.link = yaml['common']['base_url']
     maker.channel.description = channel['title']
     maker.items.do_sort = true
     makers[channel['prefix']] = maker
